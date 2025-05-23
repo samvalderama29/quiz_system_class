@@ -21,11 +21,11 @@ class QuizMenuManager:
             user_choice = input(Fore.LIGHTYELLOW_EX + "Enter your choice (1/2/3/4): ")
 
             if user_choice == "1":
-                add_new_question()
+                self.file_manager.add_new_question()
             elif user_choice == "2":
-                remove_question()
+                self.file_manager.remove_question()
             elif user_choice == "3":
-                view_all_questions()
+                self.file_manager.view_all_questions()
             elif user_choice == "4":
                 print(Fore.CYAN + Style.BRIGHT + "\n👋🏽 Goodbye! Thank you. Quiz Creator closed.")
                 break
