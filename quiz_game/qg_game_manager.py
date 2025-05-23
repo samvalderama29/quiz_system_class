@@ -4,11 +4,15 @@ init(autoreset = True)
 from qg_game_title import ASCIITitle
 from qg_question_handle import QuestionLoader
 from qg_high_scores import HighScoresManager
+from qg_exit_prompt import ExitPromptMenu
+from qg_menu import QuizMainMenu
 
 class QuizGameManager:
     def __init__(self, questions_file, high_score_file):
         self.score_manager = HighScoresManager(high_score_file)
         self.questions_loader = QuestionLoader(questions_file)
+        self.exit_manager = ExitPromptMenu()
+        self.menu_path = QuizMainMenu
 
     def quiz_game_start(self):
         print()
@@ -99,9 +103,9 @@ class QuizGameManager:
                 self.quiz_game_play(player_name)
             elif game_choice == "2":
                 self.view_answer_key(question_log)
-                menu_exit_choice()
+                self.exit_manager.menu_exit_choice()
             elif game_choice == "3":
-                main_menu()
+                self.menu_path.main_menu()
             elif game_choice == "4":
                 print(Fore.CYAN + Style.BRIGHT + "👋 Goodbye. Thank you for playing!")
                 break
