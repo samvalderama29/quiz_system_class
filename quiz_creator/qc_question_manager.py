@@ -1,13 +1,11 @@
 from colorama import init, Fore, Style
 init(autoreset = True)
 import os.path
-from qc_menu import QuizMenuManager
 from qc_exit_prompt import ExitPromptMenu
 
 class QuizQuestionManager:
     def __init__(self, file_path = "quiz_creator.txt"):
         self.quiz_file_path = file_path
-        self.menu_manager = QuizMenuManager()
         self.exit_manager = ExitPromptMenu()
 
     def add_new_question(self):
