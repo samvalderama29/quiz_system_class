@@ -4,12 +4,12 @@ import os.path
 
 class QuizQuestionManager:
     def __init__(self, file_path = "quiz_creator.txt"):
-        self.file_path = file_path
+        self.quiz_file_path = file_path
 
     def add_new_question():
         print(Fore.GREEN + Style.BRIGHT + "\n✏️ Enter a new quiz question:")
 
-        with open(quiz_file, "a") as file:
+        with open(self.quiz_file_path, "a") as file:
             user_question = input("Question: ")
             choice_a = input("Enter choice a: ")
             choice_b = input("Enter choice b: ")
@@ -37,16 +37,14 @@ class QuizQuestionManager:
             else:
                 add_new_question()
 
-
     def remove_question():
-        quiz_file = "quiz_creator.txt"
-
         print(Fore.GREEN + Style.BRIGHT + "\n🗑️ Remove a quiz question")
 
-        if not os.path.exists(quiz_file):
+        if not os.path.exists(self.quiz_file_path):
             print(Fore.RED + "\n❗ No file found to exists")
+            return
 
-        with open(quiz_file, "r") as file:
+        with open(self.quiz_file_path, "r") as file:
             quiz_creator_file = file.read()
 
         user_stored_questions = quiz_creator_file.strip().split("-----\n")
@@ -86,15 +84,12 @@ class QuizQuestionManager:
 
         menu_exit_choice()
 
-
     def view_all_questions():
-        quiz_file = "quiz_creator.txt"
-
         print(Fore.GREEN + Style.BRIGHT + "\n📝 View all questions")
         print(Fore.LIGHTWHITE_EX + "List of Questions:")
 
-        with open(quiz_file, "r") as file:
+        with open(self.quiz_file_path, "r") as file:
             print(file.read())
 
-        if not os.path.exists(quiz_file):
+        if not os.path.exists(self.quiz_file_path):
             print(Fore.RED + "❗ No file found to exists")
