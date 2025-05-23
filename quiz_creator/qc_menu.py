@@ -5,7 +5,7 @@ import sys
 
 class QuizMenuManager:
     def __init__(self):
-        self.file_manager = QuizQuestionManager
+        self.file_manager = QuizQuestionManager()
 
     def main_menu(self):
         while True:
