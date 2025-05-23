@@ -7,7 +7,7 @@ class QuizMenuManager:
     def __init__(self):
         self.file_manager = QuizQuestionManager
 
-    def main_menu():
+    def main_menu(self):
         while True:
             print(Fore.LIGHTMAGENTA_EX + Style.BRIGHT + "\n📚 Welcome to the Quiz Creator!")
             print(Fore.LIGHTWHITE_EX + "💡 This program allows you to create questions and input answer to make a quiz!")
@@ -28,6 +28,6 @@ class QuizMenuManager:
                 self.file_manager.view_all_questions()
             elif user_choice == "4":
                 print(Fore.CYAN + Style.BRIGHT + "\n👋🏽 Goodbye! Thank you. Quiz Creator closed.")
-                break
+                sys.exit()
             else:
                 print(Fore.RED +"\n❌ Invalid input! Please choose between 1, 2, 3, and 4 only.")
