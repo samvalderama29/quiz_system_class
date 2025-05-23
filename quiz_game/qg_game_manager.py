@@ -9,6 +9,8 @@ from qg_menu import QuizMainMenu
 
 class QuizGameManager:
     def __init__(self, questions_file, high_score_file):
+        self.questions_file = questions_file
+        self.high_score_file = high_score_file
         self.score_manager = HighScoresManager(high_score_file)
         self.questions_loader = QuestionLoader(questions_file)
         self.exit_manager = ExitPromptMenu()
@@ -105,7 +107,7 @@ class QuizGameManager:
                 self.view_answer_key(question_log)
                 self.exit_manager.menu_exit_choice()
             elif game_choice == "3":
-                self.menu_path.main_menu()
+                QuizMainMenu(self.questions_file, self.high_score_file).main_menu()
             elif game_choice == "4":
                 print(Fore.CYAN + Style.BRIGHT + "👋 Goodbye. Thank you for playing!")
                 break
