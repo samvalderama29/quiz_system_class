@@ -9,6 +9,31 @@ class QuizGameManager:
         self.score_manager = HighScoresManager(high_score_file)
         self.questions_loader = QuestionLoader(questions_file)
 
+    def quiz_game_start():
+        print()
+        print_title()
+        print(Fore.LIGHTGREEN_EX + "🎮 Starting Quiz Game...\n")
+
+        print(Fore.LIGHTBLUE_EX + "📜 Rules:")
+        print("✅ The game consists of 25 general knowledge questions.")
+        print("❌ Once you reach 5 mistakes, the game is over.")
+        print("🎯 Good luck and enjoy!")
+
+        player_name = input(Fore.YELLOW + Style.BRIGHT + "\n✍️ Enter your name: ")
+        if not player_name:
+            print(Fore.RED + "⚠️ Name cannot be empty.")
+            return
+
+        print(f"\n👋 Welcome, {Fore.LIGHTYELLOW_EX + player_name}{Fore.RESET}! Let's begin!")
+
+        enter_game = input(f'🔑 Type {Fore.LIGHTGREEN_EX}"GO" {Fore.RESET}to start the game: ')
+
+        if enter_game == "GO":
+            quiz_game_play(player_name)
+        else:
+            print(Fore.RED + '❌ Invalid input. Type "GO" only.')
+            quiz_game_start()
+
     def quiz_game_play(self, player_name):
         questions_list = self.questions_loader.load_questions()
         if not questions_list:
