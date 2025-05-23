@@ -1,6 +1,7 @@
 import random
 from colorama import init, Fore, Style
 init(autoreset = True)
+from qg_game_title import ASCIITitle
 from qg_question_handle import QuestionLoader
 from qg_high_scores import HighScoresManager
 
@@ -9,9 +10,9 @@ class QuizGameManager:
         self.score_manager = HighScoresManager(high_score_file)
         self.questions_loader = QuestionLoader(questions_file)
 
-    def quiz_game_start():
+    def quiz_game_start(self):
         print()
-        print_title()
+        ASCIITitle.print_title()
         print(Fore.LIGHTGREEN_EX + "🎮 Starting Quiz Game...\n")
 
         print(Fore.LIGHTBLUE_EX + "📜 Rules:")
@@ -29,10 +30,10 @@ class QuizGameManager:
         enter_game = input(f'🔑 Type {Fore.LIGHTGREEN_EX}"GO" {Fore.RESET}to start the game: ')
 
         if enter_game == "GO":
-            quiz_game_play(player_name)
+            self.quiz_game_play(player_name)
         else:
             print(Fore.RED + '❌ Invalid input. Type "GO" only.')
-            quiz_game_start()
+            self.quiz_game_start()
 
     def quiz_game_play(self, player_name):
         questions_list = self.questions_loader.load_questions()
