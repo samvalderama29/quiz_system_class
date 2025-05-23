@@ -1,8 +1,10 @@
 from colorama import init, Fore, Style
+init(autoreset = True)
 from pyfiglet import Figlet
 
 class ASCIITitle:
-    def print_title(self):
+    @staticmethod
+    def print_title():
         fig = Figlet(font='bulbhead')
         quiz = fig.renderText('Quiz').splitlines()
         game = fig.renderText('Game').splitlines()
