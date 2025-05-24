@@ -37,7 +37,7 @@ class QuizQuestionManager:
                 print(Fore.GREEN + "✅ Questions saved successfully!")
                 self.exit_manager.menu_exit_choice()
             else:
-                return
+                self.add_new_question()
 
     def remove_question(self):
         print(Fore.GREEN + Style.BRIGHT + "\n🗑️ Remove a quiz question")
