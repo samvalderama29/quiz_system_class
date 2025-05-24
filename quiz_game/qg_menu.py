@@ -2,13 +2,10 @@ import sys
 from colorama import init, Fore, Style
 init(autoreset = True)
 from qg_game_title import ASCIITitle
-from qg_high_scores import HighScoresManager
-from qg_game_manager import QuizGameManager
 
 class QuizMainMenu:
-    def __init__(self, quiz_game_path, high_score_path):
+    def __init__(self, quiz_game_path):
         self.quiz_game_path = quiz_game_path
-        self.high_score_path = high_score_path
 
     def main_menu(self):
         while True:
@@ -27,7 +24,7 @@ class QuizMainMenu:
             if user_choice == "1":
                 self.quiz_game_path.quiz_game_start()
             elif user_choice == "2":
-                self.high_score_path.high_score_view()
+                self.quiz_game_path.score_manager.high_score_view()
             elif user_choice == "3":
                 print(Fore.CYAN + Style.BRIGHT + "👋 Goodbye. Thank you for playing!")
                 sys.exit()
