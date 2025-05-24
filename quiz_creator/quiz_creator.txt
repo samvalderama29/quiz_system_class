@@ -68,13 +68,6 @@ c) Acrophobia
 d) Claustrophobia
 Correct answer: b
 -----
-Question: What chemical element is designated as �Hg�?
-a) Silver
-b) Tin
-c) Copper
-d) Mercury
-Correct answer: d
------
 Question: What is the name of the process by which plants convert sunlight into energy?
 a) Respiration
 b) Photosynthesis
@@ -101,5 +94,26 @@ a) Caspian
 b) Red
 c) Mediterranean
 d) Dead
+Correct answer: c
+-----
+Question: What animal can live on for several days without its head?
+a) Duck
+b) Chicken
+c) Ant
+d) Cockroach
+Correct answer: d
+-----
+Question: What is the traditional boat of the country of the Philippines called?
+a) Kettuvallam
+b) Schooner
+c) Bangka
+d) Coracle
+Correct answer: c
+-----
+Question: In what year were the first Winter Olympics Game held?
+a) 1954
+b) 1890
+c) 1924
+d) 1974
 Correct answer: c
 -----
