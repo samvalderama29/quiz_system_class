@@ -2,6 +2,7 @@ import os
 from colorama import init, Fore, Style
 init(autoreset = True)
 from qg_game_title import ASCIITitle
+from qg_exit_prompt import ExitPromptMenu
 
 class HighScoresManager:
     def __init__(self, high_score_file):
@@ -31,3 +32,5 @@ class HighScoresManager:
 
         for score, name in scores:
             print(f"{name}: {score}")
+
+        ExitPromptMenu().menu_exit_choice()
