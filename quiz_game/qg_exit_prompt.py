@@ -7,7 +7,7 @@ class ExitPromptMenu:
         self.exit_menu_path = exit_menu
 
     def menu_exit_choice(self):
-        menu_choice = input(Fore.LIGHTWHITE_EX + "Would you like to go back to the menu? (yes/no): ")
+        menu_choice = input(Fore.LIGHTWHITE_EX + "\n⇄ Would you like to go back to the menu? (yes/no): ")
         if menu_choice.lower() == "yes":
             print()
             if self.exit_menu_path:
