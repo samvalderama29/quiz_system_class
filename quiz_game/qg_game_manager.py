@@ -1,20 +1,20 @@
 import random
+import sys
 from colorama import init, Fore, Style
 init(autoreset = True)
 from qg_game_title import ASCIITitle
 from qg_question_handle import QuestionLoader
 from qg_high_scores import HighScoresManager
 from qg_exit_prompt import ExitPromptMenu
-from qg_menu import QuizMainMenu
 
 class QuizGameManager:
     def __init__(self, questions_file, high_score_file):
-        self.questions_file = questions_file
-        self.high_score_file = high_score_file
         self.score_manager = HighScoresManager(high_score_file)
         self.questions_loader = QuestionLoader(questions_file)
-        self.exit_manager = ExitPromptMenu()
-        self.menu_path = QuizMainMenu
+        self.main_menu_path = None
+
+    def set_main_menu(self, main_menu):
+        self.main_menu_path = main_menu
 
     def quiz_game_start(self):
         print()
@@ -105,14 +105,15 @@ class QuizGameManager:
                 self.quiz_game_play(player_name)
             elif game_choice == "2":
                 self.view_answer_key(question_log)
-                self.exit_manager.menu_exit_choice()
+                ExitPromptMenu(self.main_menu_path.main_menu).menu_exit_choice()
             elif game_choice == "3":
-                QuizMainMenu(self.questions_file, self.high_score_file).main_menu()
+                print()
+                self.main_menu_path.main_menu()
             elif game_choice == "4":
                 print(Fore.CYAN + Style.BRIGHT + "👋 Goodbye. Thank you for playing!")
-                break
+                sys.exit()
             else:
-                print(Fore.RED + "❌ Invalid input! Please choose between 1, 2, 3, and 4 only.\n")
+                print(Fore.RED + "❌ Invalid input! Please choose between 1, 2, 3, and 4 only.")
 
     @staticmethod
     def view_answer_key(history):
