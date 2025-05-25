@@ -3,3 +3,4 @@ Angel: 2
 Hi: 2
 Hi: 2
 Sam: 3
+Eda: 0
